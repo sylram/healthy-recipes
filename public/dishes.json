@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "name": "VEGAN PESTO PASTA WITH KALE",
+    "name": "Vegan Pesto Pasta with Kale",
     "country": "Italy",
     "description": "comfort food, easy, gluten-free, Italian",
     "cookingTime": 30,
-    "photo": "277677"
+    "photo": "vegan-pesto-pasta-bowl"
   },
   {
     "id": 2,
-    "name": "VEGAN PESTO PASTA WITH KALE",
-    "country": "Italy",
-    "description": "comfort food, easy, gluten-free, Italian",
+    "name": "Green Goddess Bowl",
+    "country": "Greece",
+    "description": "comfort food, easy, gluten-free",
     "cookingTime": 30,
-    "photo": "277677"
+    "photo": "Greek-Goddess-Bowl"
   }
 ]
