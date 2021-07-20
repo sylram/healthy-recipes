@@ -1,6 +1,13 @@
 import "./dish.css";
+import { useState } from "react";
+import emailIcon from './emailIcon.png';
+import Inquiry from "./Inquiry";
 
 const Dish = ({ dish }) => {
+    const [inquiryShown, setInquiryShown] = useState(false);
+    const inquiryClick = () => {
+        setInquiryShown(!inquiryShown);
+    }
     return (
         <div>
             <div className="row mt-2">
@@ -17,6 +24,11 @@ const Dish = ({ dish }) => {
                     <h5 className="description">Description</h5>
                     <p className="time">{dish.cookingTime}m</p>
                     <p>{dish.description}</p>
+                    <img
+                        src={emailIcon} height="50" alt="Inquiry"
+                        onClick={inquiryClick}
+                    />
+                    {inquiryShown && <Inquiry dish={Dish} />}
                 </div>
             </div>
         </div>

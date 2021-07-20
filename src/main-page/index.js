@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './main-page.css';
 import Header from './header';
 import { useEffect, useState, useMemo } from "react";
@@ -6,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FeautureDish from "./featured-dish";
 import SearchResults from '../search-results';
 import DishFilter from './dish-filter';
+import HouseFromQuery from '../dish/HouseFromQuery';
 
 function App() {
   const [allDishes, setAllDishes] = useState([]);
@@ -34,6 +34,9 @@ function App() {
         <Switch>
           <Route path="/searchresults/:country">
             <SearchResults allDishes={allDishes} />
+          </Route>
+          <Route path="/dish/:id">
+            <HouseFromQuery allDishes={allDishes} />
           </Route>
           <Route path="/">
             <FeautureDish dish={featuredDish} />
