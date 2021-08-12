@@ -4,11 +4,11 @@ import "./search-results.css";
 const SearchResultsRow = ({ dish }) => {
     const history = useHistory();
     const setActive = () => {
-        history.push(`/house/${dish.id}`);
+        history.push(`/dish/${dish.id}`);
     };
     return (
-        <tr onClick={setActive}>
-            <td>{dish.name}</td>
+        <tr>
+            <td><button onClick={setActive} className="btn btn-link">{dish.name}</button></td>
             <td>{dish.cookingTime}</td>
             <td>{dish.likes}</td>
         </tr>

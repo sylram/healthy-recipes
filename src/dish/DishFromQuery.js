@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import Dish from "./";
+import Dish from ".";
 
-const HouseFromQuery = ({ allDishes }) => {
+const DishFromQuery = ({ allDishes }) => {
     const { id } = useParams();
     const dish = allDishes.find((d) => d.id === parseInt(id));
 
@@ -9,4 +9,4 @@ const HouseFromQuery = ({ allDishes }) => {
     return <Dish dish={dish}></Dish>;
 };
 
-export default HouseFromQuery;
+export default DishFromQuery;

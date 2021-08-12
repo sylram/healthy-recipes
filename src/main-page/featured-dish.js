@@ -4,7 +4,7 @@ const FeaturedDish = ({ dish }) => {
     if (dish)
         return (
             <div>
-                <div className="row feautureDish">
+                <div className="row featuredDish">
                     <h3 className="col-md-12 text-center">Featured Dish</h3>
                 </div>
                 <Dish dish={dish} />

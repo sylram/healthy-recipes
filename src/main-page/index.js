@@ -2,29 +2,16 @@ import './main-page.css';
 import Header from './header';
 import { useEffect, useState, useMemo } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import FeautureDish from "./featured-dish";
+import FeaturedDish from "./featured-dish";
 import SearchResults from '../search-results';
 import DishFilter from './dish-filter';
-import HouseFromQuery from '../dish/HouseFromQuery';
+import DishFromQuery from '../dish/DishFromQuery';
+import useDishes from '../hooks/useDishes';
+import useFeaturedDish from '../hooks/useFeaturedDish';
 
 function App() {
-  const [allDishes, setAllDishes] = useState([]);
-
-  useEffect(() => {
-    const fetchDishes = async () => {
-      const response = await fetch("/dishes.json");
-      const dishes = await response.json();
-      setAllDishes(dishes);
-    };
-    fetchDishes();
-  }, []);
-
-  const featuredDish = useMemo(() => {
-    if (allDishes.length) {
-      const randomIndex = Math.floor(Math.random() * allDishes.length);
-      return allDishes[randomIndex];
-    }
-  }, [allDishes])
+  const allDishes = useDishes();
+  const featuredDish = useFeaturedDish(allDishes);
 
   return (
     <Router>
@@ -36,10 +23,10 @@ function App() {
             <SearchResults allDishes={allDishes} />
           </Route>
           <Route path="/dish/:id">
-            <HouseFromQuery allDishes={allDishes} />
+            <DishFromQuery allDishes={allDishes} />
           </Route>
           <Route path="/">
-            <FeautureDish dish={featuredDish} />
+            <FeaturedDish dish={featuredDish} />
           </Route>
         </Switch>
       </div>
